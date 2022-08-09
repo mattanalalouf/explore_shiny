@@ -22,9 +22,28 @@ ui <- fluidPage(
     # Main panel for displaying outputs ----
     mainPanel(
       
-      # Output: Histogram ----
-      plotOutput(outputId = "distPlot")
+      fluidRow(
+        column(12,
+               dataTableOutput('jobs_table')
+        )
+      )
       
     )
   )
 )
+
+
+# App idea
+# Pull job listings from various sources
+# e.g. https://www.healthecareers.com/acog/search-jobs/?locationtext=Maryland%2C+USA&remote=false&catid=2445
+# Flag new jobs in addition to past searches
+# Flag jobs that are no longer listed on the site
+# Create a table with a list of jobs of interest
+# delete jobs that are definitely not interesting (e.g. locum tenens)
+# Make a map of job locations
+# Track the date a job was first posted
+# identify the date a job was deleted
+# Set up a lambda program to update the database (daily?) 
+# Allow user input to whether a job is interesting or not
+# Create a model that tries to predict user interest based on
+#   how user has rated past jobs (text based)
